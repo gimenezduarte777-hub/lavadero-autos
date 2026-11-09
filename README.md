@@ -10,6 +10,6 @@ Cómo ejecutarlo:
 2. Copiar la Project URL y la clave anon public en app.js.
 3. Abrir index.html en el navegador.
 
-Publicación: (link de Render, lo agregamos después)
+Publicación: (https://lavadero-autos.onrender.com)
 
 Limitación: las políticas de Supabase permiten acceso sin login. Se hizo así solo para el examen.
