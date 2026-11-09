@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lavadero de Autos</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f4f6f8; color: #222; }
+    header { background: #1565c0; color: #fff; padding: 16px; }
+    header h1 { margin: 0 0 6px; font-size: 22px; }
+    header p { margin: 0 0 10px; font-size: 14px; }
+    nav a { color: #fff; margin-right: 16px; font-weight: bold; text-decoration: none; }
+    main { max-width: 700px; margin: 0 auto; padding: 16px; }
+    section { background: #fff; border-radius: 8px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+    label { font-size: 14px; font-weight: bold; }
+    input, select { width: 100%; padding: 10px; margin: 4px 0 12px; font-size: 16px; box-sizing: border-box; }
+    button { padding: 10px 14px; margin: 4px 4px 4px 0; border: none; border-radius: 6px; background: #1565c0; color: #fff; font-size: 14px; cursor: pointer; }
+    button:disabled { opacity: .6; }
+    .secundario { background: #757575; }
+    .ok { background: #2e7d32; }
+    .peligro { background: #c62828; }
+    .error { color: #c62828; min-height: 20px; font-size: 14px; }
+    .turno { border-bottom: 1px solid #e0e0e0; padding: 12px 0; }
+    .estado { font-weight: bold; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Lavadero de Autos</h1>
+    <p>Registrá los turnos de lavado de cada vehículo, elegí el servicio y llevá el control del estado.</p>
+    <nav>
+      <a href="#nuevo">Nuevo turno</a>
+      <a href="#turnos">Turnos</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="nuevo">
+      <h2 id="titulo-form">Nuevo turno</h2>
+      <form id="form-turno" novalidate>
+        <label for="patente">Patente *</label>
+        <input id="patente" placeholder="ABC123">
+
+        <label for="marca">Marca *</label>
+        <input id="marca" placeholder="Toyota">
+
+        <label for="cliente">Cliente *</label>
+        <input id="cliente" placeholder="Nombre y apellido">
+
+        <label for="servicio">Servicio *</label>
+        <select id="servicio"></select>
+
+        <label for="fecha">Fecha y hora *</label>
+        <input id="fecha" type="datetime-local">
+
+        <p class="error" id="error"></p>
+        <button type="submit" id="btn-guardar">Guardar turno</button>
+        <button type="button" id="btn-cancelar" class="secundario" style="display:none">Cancelar edición</button>
+      </form>
+    </section>
+
+    <section id="turnos">
+      <h2>Turnos</h2>
+      <div id="lista">Cargando...</div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
