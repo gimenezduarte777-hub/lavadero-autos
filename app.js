@@ -1,5 +1,5 @@
 // ===== CONFIGURACIÓN: reemplazá estos dos valores =====
-const SUPABASE_URL = 'https://github.com/gimenezduarte777-hub/lavadero-autos.git';
+const SUPABASE_URL = 'https://jcanfptjvsamgxphzlfn.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_P24C0qEfK0OlHQ5yNlIInw_9sht7J2k';
 
 const db = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
