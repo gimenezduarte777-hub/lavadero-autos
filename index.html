@@ -6,20 +6,17 @@
   <title>Lavadero de Autos</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   /* Fuentes y reset general */
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: 'Inter', sans-serif;
 }
-
 body {
   background-color: #f8fafc;
   color: #0f172a;
   min-height: 100vh;
 }
-
 /* ENCABEZADO CON IMAGEN DE FONDO */
 .<header class="hero">{
   background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.85)),
@@ -28,19 +25,16 @@ body {
   padding: 48px 20px;
   text-align: center;
 }
-
 .hero h1 {
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: -0.5px;
 }
-
 .hero p {
   color: #cbd5e1;
   font-size: 0.95rem;
   margin-top: 6px;
 }
-
 /* CONTENEDOR PRINCIPAL */
 .container {
   max-width: 1050px;
@@ -50,14 +44,12 @@ body {
   grid-template-columns: 360px 1fr;
   gap: 24px;
 }
-
 @media (max-width: 768px) {
   .container {
     grid-template-columns: 1fr;
     margin-top: 16px;
   }
 }
-
 /* TARJETAS NEUTRAS */
 .card {
   background: #ffffff;
@@ -66,7 +58,6 @@ body {
   padding: 24px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
 }
-
 .card h2 {
   font-size: 1.15rem;
   font-weight: 600;
@@ -74,7 +65,6 @@ body {
   border-bottom: 1px solid #f1f5f9;
   padding-bottom: 12px;
 }
-
 /* INPUTS Y FORMULARIO */
 label {
   display: block;
@@ -85,7 +75,6 @@ label {
   letter-spacing: 0.5px;
   margin-bottom: 6px;
 }
-
 input, select {
   width: 100%;
   padding: 10px 12px;
@@ -97,20 +86,17 @@ input, select {
   margin-bottom: 14px;
   transition: all 0.2s ease;
 }
-
 input:focus, select:focus {
   outline: none;
   background-color: #ffffff;
   border-color: #0f172a;
   box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.08);
 }
-
 input:disabled {
   background-color: #e2e8f0;
   color: #94a3b8;
   cursor: not-allowed;
 }
-
 /* BOTONES */
 button {
   cursor: pointer;
@@ -121,7 +107,6 @@ button {
   border: none;
   transition: opacity 0.2s, background-color 0.2s;
 }
-
 #btn-guardar {
   width: 100%;
   background: #0f172a;
@@ -129,9 +114,7 @@ button {
   padding: 12px;
   font-size: 0.95rem;
 }
-
 #btn-guardar:hover { background: #334155; }
-
 #btn-cancelar {
   width: 100%;
   background: transparent;
@@ -139,7 +122,6 @@ button {
   margin-top: 8px;
   border: 1px solid #cbd5e1;
 }
-
 /* TARJETA INDIVIDUAL DE TURNO */
 .turno {
   background: #ffffff;
@@ -150,12 +132,10 @@ button {
   margin-bottom: 14px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.03);
 }
-
 .turno strong {
   font-size: 1rem;
   letter-spacing: 0.5px;
 }
-
 .turno .estado {
   display: inline-block;
   padding: 2px 8px;
@@ -166,7 +146,6 @@ button {
   font-weight: 600;
   text-transform: capitalize;
 }
-
 /* Botones de acción en la tarjeta */
 .turno button {
   margin-top: 10px;
@@ -175,7 +154,6 @@ button {
   background-color: #ffffff;
   color: #334155;
 }
-
 .turno button:hover { background-color: #f1f5f9; }
 
 .turno button.ok {
@@ -183,13 +161,11 @@ button {
   color: #065f46;
   border-color: #a7f3d0;
 }
-
 .turno button.peligro {
   background-color: #fff1f2;
   color: #9f1239;
   border-color: #fecdd3;
 }
-
 #error {
   color: #be123c;
   font-size: 0.85rem;
@@ -216,47 +192,49 @@ button {
   </style>
 </head>
 <body>
-  <header>
-    <h1>Lavadero de Autos</h1>
-    <p>Registrá los turnos de lavado de cada vehículo, elegí el servicio y llevá el control del estado.</p>
-    <nav>
-      <a href="#nuevo">Nuevo turno</a>
-      <a href="#turnos">Turnos</a>
-    </nav>
-  </header>
+  <!-- Encabezado con imagen de fondo -->
+<header class="hero">
+  <h1>Lavadero & Detailing</h1>
+  <p>Gestión de turnos y servicios</p>
+</header>
 
-  <main>
-    <section id="nuevo">
-      <h2 id="titulo-form">Nuevo turno</h2>
-      <form id="form-turno" novalidate>
-        <label for="patente">Patente *</label>
-        <input id="patente" placeholder="ABC123">
+<main class="container">
+  <!-- Columna Formulario -->
+  <section class="card">
+    <h2 id="titulo-form">Nuevo turno</h2>
+    <div id="error"></div>
+    <form id="form-turno" novalidate>
+      <label>Patente</label>
+      <input type="text" id="patente" placeholder="Ej: ABC 123" required>
 
-        <label for="marca">Marca *</label>
-        <input id="marca" placeholder="Toyota">
+      <label>Marca / Modelo</label>
+      <input type="text" id="marca" placeholder="Ej: Toyota Hilux" required>
 
-        <label for="cliente">Cliente *</label>
-        <input id="cliente" placeholder="Nombre y apellido">
+      <label>Cliente</label>
+      <input type="text" id="cliente" placeholder="Nombre completo" required>
 
-        <label for="servicio">Servicio *</label>
-        <select id="servicio"></select>
+      <label>Servicio</label>
+      <select id="servicio" required></select>
 
-        <label for="fecha">Fecha y hora *</label>
-        <input id="fecha" type="datetime-local">
+      <label>Fecha y Hora</label>
+      <input type="datetime-local" id="fecha" required>
 
-        <p class="error" id="error"></p>
-        <button type="submit" id="btn-guardar">Guardar turno</button>
-        <button type="button" id="btn-cancelar" class="secundario" style="display:none">Cancelar edición</button>
-      </form>
-    </section>
+      <button type="submit" id="btn-guardar">Guardar turno</button>
+      <button type="button" id="btn-cancelar" style="display: none;">Cancelar</button>
+    </form>
+  </section>
 
-    <section id="turnos">
+  <!-- Columna Lista de Turnos -->
+  <section class="card">
+    <h2>Turnos programados</h2>
+    <div id="lista"></div>
+  </section>
+      <section id="turnos" class="card">
       <h2>Turnos</h2>
       <div id="lista">Cargando...</div>
-    </section>
-  </main>
-
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+      </section>
+</main>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="app.js"></script>
 </body>
 </html>
